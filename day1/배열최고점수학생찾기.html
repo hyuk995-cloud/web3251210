@@ -28,17 +28,69 @@
 
         document.write(`평균 ${round} <br>`);
 
-        // 최고 점수 학생 이름 찾기
-        let maxName = 0;
-        let maxScore = 0;
+        // // 최고 점수 학생 이름 찾기 내가 만든거
+        // let maxName = 0;
+        // let maxScore = 0;
 
-        for( let i = 0; i < student.length; i++){
-            if(student[i].score > maxScore){
-                maxName = student[i].name;
-                maxScore = student[i].score;
+        // for( let i = 0; i < student.length; i++){
+        //     if(student[i].score > maxScore){
+        //         maxName = student[i].name;
+        //         maxScore = student[i].score;
+        //     }
+        // }
+        // document.write(`학생이름 : ${maxName}, 최고 점수: ${maxScore}`);
+
+        //최고 점수 학생 강사님이 만든거
+
+        // document.write("<br>")
+        // document.write("최고점수 학생 =============<br>")
+
+        // let hightScore = 0;
+        // let topStudent;
+        // for (let i = 0; i < student.length; i++){
+        //     if(student[i].score > hightScore){
+        //         hightScore = student[i].score;
+        //         topStudent = student[i];
+        //     }
+        // }
+        // console.log(hightScore);
+        // console.log(topStudent);
+        // document.write(`최고점수 학생 : ${topStudent.name} / 점수 : ${hightScore}`);
+
+        //평균 이상인 학생들을 뽑기
+
+        //내가 만든거 평균 정보
+        let passedStudent = [];
+        // for(let i = 0; i < student.length; i++){
+        //     if(student[i].score > round){
+        //         passedStudent.push(student[i].name+":"+student[i].score);
+        //     }
+        // }
+        // document.write(passedStudent);
+
+        // 평균 이상 학생 정보, 강사님꺼
+        // for(let i = 0; i < student.length; i++){
+        //     if(student[i].score >= round)
+        //     passedStudent.push(student[i]); //여기
+        // }
+        // console.log(passedStudent);
+        // document.write("평균 이상 학생 <br>"); //여기 체크 해볼 것
+        // for (let i = 0; i < passedStudent.length; i++){
+        //     document.write(`${passedStudent[i].name} : ${passedStudent[i].score}<br>`)
+        // }
+
+
+
+
+        //p를 만들어서 스튜던트를 돈다는 의미
+        for(let p of student){
+            if(p.score >= round){
+                passedStudent.push(p);
+                console.log(p);
+                document.write(`${p.name} : ${p.score} <br>`);
             }
+
         }
-        document.write(`학생이름 : ${maxName}, 최고 점수: ${maxScore}`);
     </script>
 </body>
 </html>
