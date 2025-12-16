@@ -25,41 +25,71 @@
         let list = new Array();
 
         userName.addEventListener("click", function () {
-            list.push(prompt("이름을 입력해주세요"));
-            
+            // list.push(prompt("이름을 입력해주세요"));
+            const name = prompt("성명 입력");
+            if(name !== ""){
+                list.push(name);
+            }else{
+                alert("이름을 입력해주세요");
+            }
         })
 
         console.log(list);
 
-
         // userCheck를 눌렀을 때 현재 대기자 명단 출력
         // user를 눌렀을 때 현재 대기자는 홍길동, 김철수 , 박영희 이며, 총 3명입니다
         // 대기자가 없다면 없습니다.
-
         
         
-        function usercheck(){
-            if(list.length > 0){
+        
+        /*
+        function check(){
+            if(list.length){
                 document.write(`${list} 이며 총 ${list.length}명 입니다.`);
-            }else if(list.length = 0){
+            }else {
                 document.write("<br>대기자가 없습니다.");
             }
         }
 
-        userCheck.addEventListener("click", usercheck());
+        userCheck.addEventListener("click", check);
         
 
         // 입장까지 할 수 있으면 입장도 할 것
-        // function comein(){
-        //     if(list.length > 0){
-        //         document.write(`${list[0]}님이 입장 하셨습니다.`);
-        //         list.shift()
-        //         document.write(`남은 대기자는 ${list.length} 명 입니다.`)
-        //     }
+        function comein(){
+            if(list.length){
+                document.write(`${list}님이 입장 하셨습니다.`);
+                list.shift();
+                document.write(`남은 대기자는 ${list.length} 명 입니다.`);
+            }
             
-        // }
+        }
 
-        // comeIn.addEventListener("click", comein());
+        // comeIn.addEventListener("click", comein);
+            */
+        
+        
+        //아래는 강사님이 만든거
+
+        function listName(){
+            if(list.length){
+                alert(`현재 대기자는 ${list}이며 총 ${list.length}명 입니다.`);
+            }else{
+                alert(`대기자가 없습니다.`);
+            }
+        }
+
+        userCheck.addEventListener("click", listName);
+
+        function come(){
+            if(list.length){
+                alert(`${list.shift()}님 입장합니다. 대기 인원은 ${list.length}입니다`);
+            }else {
+                alert("입장할 손님이 없습니다.");
+            }
+        }
+
+        comeIn.addEventListener("click", come());
+
     </script>
 </body>
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리턴이미지갤러리</title>
+</head>
+
+<body>
+    <div>
+        <figure>
+            <img id="photo" src="./img/img_01.jpg" alt="#">
+        </figure>
+        <button onclick= gallery(0)>prev</button>
+        <button onclick= gallery(1)>next</button>
+    </div>
+    <script>
+        /*
+        html
+        =>  html로 구조를 잡은 후
+            figure안에 첫번째 보일 img를 넣어줌 (id를 넣어줄 것)
+            button 두개 만들기
+        =======
+        scrip
+        =>  현재 보여지는 img의 번호를 저장하는 변수를 만들 것 초기값은 1
+        함수를 만드는데 매개변수를 받을 것이다.
+        만약에 매개변수에 들어온 값이 3과 같다면 넥스트 버튼을 중지
+        아니라면 다음 이미지 출력
+        
+        prev도 동일(1과 같다면 버튼 중지 아니라면 전 이미지 출력)
+
+        이미지에 있는 id를 불러와서
+        이미지변수명.setAttribute("src","./동물"+img변수 +".jpg")
+
+
+        */
+
+        const prev = document.getElementById("img_prev");
+        const next = document.getElementById("img_next");
+
+        let imgnum = 1;
+
+        function gallery(num){
+            if(num){
+                if(imgnum == 3){
+                    return;
+                }else{
+                    imgnum++;
+                }
+            }else {
+                if(imgnum == 1){
+                    return;
+                }else{
+                    imgnum--;
+                }
+            }
+            let photo = document.getElementById("photo");
+            photo.setAttribute("src","./img/img_0"+imgnum+".jpg");
+        }
+
+        // function nextBtn() {
+        //     if (imgnum < 3) {
+        //         imgnum += 1;
+        //     } else {
+        //         return;
+        //     }
+        // }
+
+        // function prevBtn() {
+        //     if (imgnum > 0) {
+        //         imgnum -= 1;
+        //     } else {
+        //         return;
+        //     }
+        // }
+
+        // prev.addEventListener("click", prevBtn());
+        // next.addEventListener("click", nextBtn());
+
+        // const figureimg = document.getElementById("photo");
+        // figureimg.setAttribute("src", "./img/img_0"+imgnum+".jpg");
+    </script>
+</body>
+
+</html>
