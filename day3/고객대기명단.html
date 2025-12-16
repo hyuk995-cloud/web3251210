@@ -37,13 +37,29 @@
         // 대기자가 없다면 없습니다.
 
         
-        function userCheck(){
-            document.write(`${list}`);
-        };
+        
+        function usercheck(){
+            if(list.length > 0){
+                document.write(`${list} 이며 총 ${list.length}명 입니다.`);
+            }else if(list.length = 0){
+                document.write("<br>대기자가 없습니다.");
+            }
+        }
 
-        userCheck.addEventListener("click", userCheck())
+        userCheck.addEventListener("click", usercheck());
+        
 
         // 입장까지 할 수 있으면 입장도 할 것
+        // function comein(){
+        //     if(list.length > 0){
+        //         document.write(`${list[0]}님이 입장 하셨습니다.`);
+        //         list.shift()
+        //         document.write(`남은 대기자는 ${list.length} 명 입니다.`)
+        //     }
+            
+        // }
+
+        // comeIn.addEventListener("click", comein());
     </script>
 </body>
 
