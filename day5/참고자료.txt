@@ -1,0 +1,10 @@
+javascript getboundingclientrect
+
+elem.getBoundingClientRect().x : 현재 창기준 x좌표
+elem.getBoundingClientRect().y : 현재 창기준 y좌표
+elem.getBoundingClientRect().width : 엘리먼트 가로
+elem.getBoundingClientRect().height : 엘리먼트 세로
+elem.getBoundingClientRect().top : 현재 창기준 세로 시작점 부터 엘리먼트 윗변 까지의 거리
+elem.getBoundingClientRect().left : 현재 창기준 가로 시작점 부터 엘리먼트 왼쪽변 까지의 거리
+elem.getBoundingClientRect().right : 현재 창기준 가로 시작점 부터 엘리먼트 오른쪽변 까지의 거리
+elem.getBoundingClientRect().bottom : 현재 창기준 세로 시작점 부터 엘리먼트 아래변 까지의 거리

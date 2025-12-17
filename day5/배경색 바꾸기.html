@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경색 바꾸기</title>
+    <style>
+        body{
+            background-color: ;
+        }
+    </style>
+</head>
+<body id="body">
+    <button id = "button" onclick="backgroundCange()">바꾸기</button>
+    <script>
+        // 배경색을 담을 배열 생성(5개정도) : css에서 지원하는 컬러네임으로 정할것.
+        // 배경색 배열에 접근할 변수 생성 let i = 0;
+        // 만약 변수의 수가 배열보다 크다면 i는 0 됨
+        // 버튼을 클릭할때마다 바디의 색이 바뀜
+
+/* 내가만든거
+    let i = 0;
+    let bgColr = new Array();
+    bgColr[0] = "red";
+    bgColr[1] = "blue";
+    bgColr[2] = "yellow"
+    
+    
+
+    
+    function bg(i){
+        for(i = 0; i < bgColr.length; i++){
+
+            if(i > bgColr.length){
+                i = 0;
+            }
+        }
+    }
+    */
+
+    //강사님이 만든거
+
+    let color = ["red","blue","orange","green"];
+    let i = 0;
+
+    function backgroundCange(){
+        if(i >= color.length){
+            i = 0;
+        }
+        let body = document.getElementById("body");
+        let button = document.getElementById("button")
+        body.style.backgroundColor = color[i];
+        i++;
+
+        button.style.width = i*100 + "px";
+    }
+
+    </script>
+</body>
+</html>
