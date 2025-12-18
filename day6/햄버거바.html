@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>햄버거바</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ham {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+            border: none;
+            top:0;
+            right: 0;
+            z-index: 9999;
+            background: black;
+            color: #fff;
+            align-items: center;
+            justify-items: center;
+            
+        }
+
+        .ham > span {
+            width: 100px;
+            height: 0px;
+            border: 1px solid black;
+        }
+
+        .menu_bar {
+            top: 0;
+            right: 0;
+            position: fixed;
+            background: orange;
+            width: 300px;
+            height: 900%;
+            transform: translateX(500px);
+            transition: 1s;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        li {
+            padding: 16px;
+        }
+
+        .to_left {
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="ham" id="ham">
+        <span></span>
+    </div>
+    <div class="menu_bar" id="menu_bar">
+        <ul>
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+        </ul>
+    </div>
+
+    <script>
+        const ham = document.getElementById("ham");
+
+        ham.addEventListener("click", function(){
+                menu_bar.classList.add("to_left");
+        });
+
+
+    </script>
+</body>
+</html>
