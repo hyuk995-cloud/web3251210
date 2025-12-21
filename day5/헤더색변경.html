@@ -82,6 +82,7 @@
     </header>
 
     <script>
+        
         // getBoundingClientRect().x : 현재 창기준 x좌표
         // getBoundingClientRect().y : 현재 창기준 y좌표
         // getBoundingClientRect().width : 엘리먼트 가로
@@ -109,7 +110,7 @@
                     elem.classList.add("header_active_text");
                 })
                 btns.forEach((btn)=>{
-                    elem.classList.add("header_active_button"); //고장남
+                    btn.classList.add("header_active_button");
                 })
             }else {
                 header.classList.remove("header_active");
@@ -117,7 +118,7 @@
                     elem.classList.remove("header_active_text");
                 })
                 btns.forEach((btn)=>{
-                    elem.classList.remove("header_active_button");
+                    btn.classList.remove("header_active_button");
                 })
             }
 

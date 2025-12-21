@@ -12,25 +12,49 @@
 
         .ham {
             position: fixed;
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
             border: none;
             top:0;
             right: 0;
             z-index: 9999;
-            background: black;
+            background: orange;
             color: #fff;
             align-items: center;
             justify-items: center;
-            
         }
 
         .ham > span {
-            width: 100px;
-            height: 0px;
+            display: block;
+            width: 40px;
+            height: 5px;
             border: 1px solid black;
+            background: black;
+            margin: 5px 0 20px 0;
+            transition: 0.3s;
         }
+
+        .ham > .bar2 {
+            transition: none;
+        }
+
+        .ham > .bar3 {
+            margin-bottom: 0px;
+        }
+
+        .ham:hover > .bar1 {
+            transform: translateY(28px) rotate(40deg);
+        }
+
+        .ham:hover > .bar2 {
+            opacity: 0;
+        }
+
+        .ham:hover > .bar3 {
+            transform: translateY(-28px) rotate(-40deg);
+        }
+
 
         .menu_bar {
             top: 0;
@@ -60,7 +84,9 @@
 </head>
 <body>
     <div class="ham" id="ham">
-        <span></span>
+        <span class="bar1"></span>
+        <span class="bar2"></span>
+        <span class="bar3"></span>
     </div>
     <div class="menu_bar" id="menu_bar">
         <ul>
@@ -74,7 +100,15 @@
         const ham = document.getElementById("ham");
 
         ham.addEventListener("click", function(){
+            let i = 0;
+            if( i == 0){
                 menu_bar.classList.add("to_left");
+                i++
+                }
+            else {
+                menu_bar.classList.remove("to_left");
+                i--
+            }
         });
 
 
