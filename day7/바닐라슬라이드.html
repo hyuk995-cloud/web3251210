@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바닐라 슬라이드</title>
+    <style>
+        .slide_container {
+            width: 1000px;
+            height: 500px;
+            border: 3px solid goldenrod;
+            text-align: center;
+            line-height: 500px;
+            font-size: 100px;
+            color: goldenrod;
+            margin: 0 auto;
+        }
+
+        .btn_box {
+            width: 1000px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 120px;
+            height: 60px;
+            background-color: gold;
+            font-size: 28px;
+            color:#fff;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide_container"></div>
+
+    <div class="btn_box">
+        <button>prev</button>
+        <button>next</button>
+    </div>
+
+    <script>
+        const viewBox = document.querySelector(".slide_container");
+        const btnBox = document.querySelector(".btn_box");
+        console.log(btnBox.children[0]);
+        console.log(btnBox.children[1]);
+
+        let index = 1;
+        viewBox.innerHTML = index;
+
+
+        // 내가만든거
+        // btnBox.children[0].addEventListener("click",()=>{
+        //     if(index >= 2){
+        //         index--;
+        //         console.log(index);
+        //     }else{
+        //         index = 4;
+        //     }
+        //     viewBox.innerHTML = index;
+        // });
+
+        // btnBox.children[1].addEventListener("click",()=>{
+        //     if(index <= 3){
+        //         index++;
+        //         console.log(index);
+        //     }else{
+        //         index = 1;
+        //     }
+        //     viewBox.innerHTML = index;
+        // });
+        btnBox.children[0].addEventListener("click",prev);
+        btnBox.children[1].addEventListener("click",next);
+
+        function prev(){
+            if(index === 1){
+                index = 4;
+            }else {
+                index--;
+            }
+            viewBox.innerHTML = index;
+        }
+
+        function next(){
+            if(index === 4){
+                index = 1;
+            }else {
+                index++;
+            }
+            viewBox.innerHTML = index;
+        }
+
+    </script>
+</body>
+</html>

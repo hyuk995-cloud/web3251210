@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>햄버거메뉴</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ham_container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            padding: 16px 0 0 0;
+            z-index: 99999;
+        }
+
+        .hamburger {
+            width: 40px;
+            height: 3px;
+            background-color: black;
+            position: relative;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background-color: black;
+            display: block;
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .hamburger::before {
+            top: -12px;
+        }
+
+        .hamburger::after {
+            top : 12px;
+        }
+
+        .hamburger.active {
+            background-color: transparent;
+        }
+
+        .hamburger.active::before {
+            transform: rotate(45deg);
+            top: 0;
+            background-color: hotpink;
+        }
+
+        .hamburger.active::after {
+            transform: rotate(-45deg);
+            top: 0;
+            background-color: hotpink;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: aqua;
+            margin: 0;
+            padding: 0;
+            transition: 0.3s;
+        }
+
+        .menu > li {
+            list-style: none;
+            padding: 16px;
+            font-size: 24px;
+        }
+
+        .menu > li > a {
+            text-decoration: none;
+            color: green;
+        }
+
+        .menu.active {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="ham_container">
+        <div class="hamburger">
+
+        </div>
+    </div>
+            <ul class="menu">
+            <li>
+                <a href="#">메뉴1</a>
+            </li>
+            <li>
+                <a href="#">메뉴2</a>
+            </li>
+            <li>
+                <a href="#">메뉴3</a>
+            </li>
+        </ul>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const hamContanier = document.querySelector(".ham_container");
+        const menu = document.querySelector(".menu");
+
+        // 토글은 오류가 날 가능성이 있다.
+        hamContanier.addEventListener("click",()=>{
+            hamburger.classList.toggle("active");
+            menu.classList.toggle("active");
+        });
+
+        // 토글보다 안전한 방법 아래
+        let isMenuOpen = true;
+        // hamContanier.addEventListener("click",()=>{
+        //     if(isMenuOpen){
+        //         hamburger.classList.add("active");
+        //         menu.classList.add("active");
+        //     }else{
+        //         hamburger.classList.remove("active");
+        //         menu.classList.remove("active");
+        //     }
+        //     isMenuOpen = !isMenuOpen;
+        // });
+
+    </script>
+</body>
+</html>
