@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지점검색</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .map_section {
+            display: flex;
+            background: rgb(175, 162, 45);
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            color: #fff;
+        }
+
+        .left_map>p {
+            font-size: 24px;
+        }
+
+        .left_map>h2 {
+            font-size: 60px;
+            margin: 0;
+        }
+
+        .right_search>h2 {
+            font-size: 32px;
+            margin: 0;
+        }
+
+        .input_box {
+            width: 300px;
+            background-color: rgb(104, 91, 91);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #fff;
+            padding: 8px 16px;
+            margin-top: 32px;
+            border-radius: 16px;
+        }
+
+        .input,
+        .search_icon {
+            background: none;
+            border: none;
+            color: #fff;
+            outline: none;
+            font-size: 20px;
+        }
+
+        .search_icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search_icon>img {
+            filter: invert(100%);
+        }
+
+        iframe {
+            border-radius: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="map_section">
+        <div class="left_map">
+            <p>나는 카페모카</p>
+            <h1>StarBucks Place</h1>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.556309294693!2d126.68027504099781!3d37.447585046707694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b79a3a22bc217%3A0xad69251d2ad7da9c!2z66mU6rCA7Luk7ZS8IOyduOyynOq0gOq1kO2VnOyLoOygkA!5e0!3m2!1sko!2skr!4v1766546277103!5m2!1sko!2skr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="right_search">
+            <h2>지점 찾기</h2>
+            <div class="input_box">
+                <input type="text" class="input" id="input_text" placeholder="지역을 입력하세요.">
+                <button class="search_icon">
+                    <img src="./img/Group 82.png" alt="">
+                </button>
+            </div>
+        </div>
+    </section>
+    <script>
+        const inputText = document.getElementById("input_text");
+        const btn = document.querySelector(".search_icon");
+
+        btn.disabled = true;
+        btn.style.opacity = 0.3;
+
+        inputText.addEventListener("input", () => {
+            if (inputText.value.trim() !== "") {//trim() : 입력한 문자의 공백을 제거 ex) "         강남    " => "강남" 으로 바꿔줌
+                btn.disabled = false; // input에 어떤 값이 들어왔다면 비활성화를 끈다.
+                btn.style.opacity = 1;
+            } else {
+                btn.disabled = true;
+                btn.style.opacity = 0.3;
+            }
+        });
+
+        btn.addEventListener("click",()=>{
+            input();
+        });
+
+        window.addEventListener("keyup",()=>{
+            if(e.key === "Enter"){
+                input();
+            }
+        });
+
+        function input(){
+            const query = encodeURIComponent("스타벅스 " + inputText.value.trim()); // encodeURIComponent(): 주소창에 특수 문자나 한글을 그대로 입력할 수 없기 때문에 웹 주소에 맞게 인코딩 해주는 메소드
+            // https://www.google.com/maps/search/%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4/data=!3m1!4b1 -- %EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4 가 스타벅스를 인코딩한 문자
+            window.open("https://www.google.com/maps/search/"+ query +"/data=!3m1!4b1");
+        }
+
+    </script>
+</body>
+
+</html>
