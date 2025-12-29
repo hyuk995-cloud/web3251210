@@ -93,7 +93,7 @@
              }) **/
             tab.addEventListener("click",()=>{
                 tabs.forEach(t => t.classList.remove('active'));
-                tabs.forEach(tc => tc.classList.remove('active'));
+                tabContent.forEach(tc => tc.classList.remove('active'));
                 tab.classList.add("active");
                 document.getElementById('tab_' + tab.dataset.tab).classList.add("active");
                 // dataset : html에서 달아준 data-**
