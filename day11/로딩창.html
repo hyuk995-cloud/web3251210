@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로딩창</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 1010px;
+        }
+
+        .loding {
+            background-color: hotpink;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bouns_balls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            
+        }
+
+        li {
+            margin-top: 500px;
+            list-style: none;
+            width: 15px;
+            height: 15px;
+            border: 2px solid #fff;
+            background-color: #fff;
+            border-radius: 15px;
+            animation: bouns 0.5s infinite;
+        }
+        .loding_text {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* .bouns_balls:first-child{
+            
+            transition: 0.1s;
+        }
+
+        .bouns_balls:nth-child(1){
+            transition: 0.3s;
+        }
+
+        .bouns_balls:last-child{
+            transition: 0.5s;
+        } */
+
+        @keyframes bouns{
+            0% {
+                transform: translateY('50%');
+            }
+
+            100% {
+                transform: translateY('0');
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="loding">
+        <ul class="bouns_balls">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p class="loding_text">로딩중입니다.</p>
+    </section>
+    <script>
+        const loding = document.querySelector(".loding");
+        console.log(loding);
+        const bouns = document.querySelector(".bouns_balls");
+        console.log(bouns)
+
+        const LodingDisable(loding())
+        function loding(() => {
+            
+        }, )
+        </script>
+</body>
+
+</html>

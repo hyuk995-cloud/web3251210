@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이핑인터렉션</title>
+    <style>
+        body {
+            background-color: brown;
+        }
+
+        #typing {
+            font-size: 60px;
+            font-weight: bold;
+            color: #fff;
+            margin: 0 300px;
+            transform: translateY(350px);
+            width: max-content;
+            border-right: 2px solid #fff;
+            animation: borderAnimation 0.5s infinite;
+        }
+
+        @keyframes borderAnimation {
+            50% {
+                border-right: none;
+            }
+
+            100% {
+                border-right:2px solid #fff;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="typing">
+    </div>
+    <script>
+        const texts = [
+            "Welocom to my portfolio",
+            "저의 포트폴리오에 오신 것을 환영합니다.",
+            "저는 동물원에 가고 싶어요",
+            "오늘은 12월 30일 입니다."
+        ]
+
+        let textIndex = 0; // 현재 어떤 문장 타이핑 중인지 저장할 변수
+        let charIndex = 0; // 현재 문장 안에서 몇번째 글자까지 썻는지 확인할 변수
+
+        const typingElement = document.getElementById("typing")
+        const typing = () => {
+            if(charIndex < texts[textIndex].length){
+                typingElement.textContent += texts[textIndex][charIndex];
+                charIndex++;
+                setTimeout(typing,1000);
+            }else{
+                setTimeout(()=>{
+                    typingElement.textContent = "";
+                    charIndex = 0;
+                    textIndex = (textIndex+1) % texts.length;
+                    //text.length : 개수는 4, 인덱스는 0 ~ 3
+                    // 1 / 4 = 1
+                    // 2 / 4 = 2
+                    // 3 / 4 = 3
+                    // 4 / 4 = 0
+                    typing();
+                },2000)
+            }
+        }
+        typing();
+
+        const pointer = document.getElementById("typing")
+    </script>
+</body>
+
+</html>
