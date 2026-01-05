@@ -1,0 +1,40 @@
+1. 리뉴얼 -> 이전에 있던 사이트를 내식대로 바꿔서 만드는 것
+디자인 -> 코딩
+카페(망할 확률 높음):스타벅스 이런거
+뮤지컬 홍보 페이지
+네이버 스마트 스토어
+*자료가 많아야함!
+10개 추리기
+최종 고른 후 색뽑기
+ 1.1 컨텐츠 고민(각 섹션마다 뭘 넣어야 할지 고민, 섹션은 5개-> 메인 빼고, about
+ ,인기상품, 리뷰, 지점소개등)
+ 1.2 figma 1920*1080 프레임에 메인페이지 만들기
+ 1.3 나머지 디자인
+
+
+2. 창작
+ 기획 -> 디자인 -> 코딩
+
+3. 
+
+
+리뉴얼 해보고 싶은 홈페이지
+sm 엔터테이먼트 : https://www.smentertainment.com/ 
+리뉴얼 방향 : yg스타일 - https://www.ygfamily.com/ko/about/producer
+             jyp 스타일 - https://www.jype.com/ko
+
+
+블리자드 : https://www.blizzard.com/ko-kr/
+리뉴얼 방향: 카잔(넥슨)게임 홈페이지 - https://khazan.nexon.com/en/main
+            스팀 홈페이지 - https://store.steampowered.com/
+
+
+문피아 : https://www.munpia.com/
+리뉴얼 방향 : 카카오 페이지 - https://page.kakao.com/
+             조아라 - https://www.joara.com/main/recommend
+             노벨 피아 - https://novelpia.com/
+=========================================
+새로 만들고 싶은 홈페이지
+
+버츄얼 홈페이지 제작
+참고 홈페이지 : https://stellive.me/
