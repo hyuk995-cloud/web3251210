@@ -156,7 +156,7 @@
 
             // 이벤트라는 매개변수는 우리가 직접 넣어주지 않고 
             // 마우스 휠을 내리거나 올릴때 함수를 호출 할 때 알아서 이벤트에 들어감.
-            // window.addEventListener.("wheel",handleScroll);
+            // window.addEventListener("wheel",handleScroll);
             // 위처럼 작성하면 handelScroll을 직접 실행하는게 아니고 어떤 이벤트로 인해 실행하게됨.
             // handelScroll(evemtObject);
             // window.adeeEventLister("wheel",(e)=>{
@@ -190,10 +190,10 @@
         //=====================================================================================================================
         // 반응형 함수
         function initFullPageScroll(){
-            if(width > 1025){
-                removeEventListener.handleScroll;
+            if(window.innerWidth > breakPoint){
+                window.addEventListener("wheel",handleScroll);
             }else {
-                handleScroll();
+                window.removeEventListener("wheel",handleScroll);
             }
             //브라우저의 너비가 1024보다 크다면 handleScroll 실행, 작다면 handleScroll제거
         }
