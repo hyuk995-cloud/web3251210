@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d카드</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 50px;
+            background-color: rgb(84, 83, 92);
+            perspective: 500px;
+        }
+        
+        .card {
+            position: relative;
+            width: 300px;
+            height: 450px;
+            border-radius: 20px;
+            background-color: aqua;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transition: tansform  0.6s cubic-bezier(0.44 -9.56%, -0.32 66.18%, 1 81.62%)
+        }
+
+        .card_content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: translateZ(100px);
+            color: #fff
+        }
+
+        .first {
+            background: url(./img/다운로드\ \(11\).jpg);
+            background-size: cover;
+        }
+
+        .second{
+            background: url(./img/다운로드.png);
+            background-size: cover;
+        }
+
+        .animal_img {
+            position: absolute;
+            bottom: 30px;
+            right: 20%;
+            width: 75%;
+            transform: translateZ(60px);
+        }
+    </style>
+</head>
+<body>
+    <div class="card first">
+        <div class="card_content">
+            <h2>다람쥐 매직 미사일</h2>
+            <p>매직 미사일을 사용할 수 있다.</p>
+        </div>
+        <img class="animal_img" src="./img/다람쥐의장풍.png" alt="다람쥐이미지">
+    </div>
+
+    <div class="card second">
+        <div class="card_content">
+            <h2>행운의 강아지</h2>
+            <p>행운을 증가시켜주는 강아지</p>
+        </div>
+        <img class="animal_img" src="./img/강아지이미지.png" alt="강아지이미지">
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll(".card");
+        // console.log(cards);
+
+        cards.forEach(card =>{
+            card.addEventListener("mousemove",(e)=>{
+                const rect = card.getBoundingClientRect();
+                // top, x, y, left, width, height, 등등등 사용 가능
+                // const
+                // e.clientX : 브라우저 왼쪽을 기준으로 마우스의 X좌표를 알려줌
+                // e.clientY : Y좌표를 알려줌
+
+                // rect.left == card.getBoundingClientRect().left
+                // rect.left의 왼쪽 시작점
+
+
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                // console.log(y);
+                // 카드 왼쪽 시작점이 200이라는 가정하에 예시
+                // 마우스의 x좌표는 350이라고 가정
+                // 카드 왼쪽 시작점 : 200
+                // 마우스의 왼쪽 시작점 :350
+                // 마우스의 왼쪽 시작점(350) - 카드 왼쪽 시작점(200) = 150
+                
+                const centerX = rect.width/2;
+                const centerY = rect.height/2;
+
+                const rotateX = -(y-centerY)/15;
+                const rotateY = (x-centerX)/15;
+                // x는 카드 왼쪽 기준 마우스 위치
+                // centerX는 카드 X중앙
+                // 200 -150 = 50 -> rotateY(3.3deg)
+
+                card.style.transform = `rotateX(${rotateX}deg) rotatey(${rotateY}deg)`
+                card.addEventListener("mouseleave",()=>{
+                    card.style.transform = `rotateX(0deg) rotatey(0deg)`
+                })
+            })
+        })
+    </script>
+</body>
+</html>
